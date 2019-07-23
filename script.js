@@ -1,21 +1,33 @@
-function check(){
-    let number = document.querySelector("input").value;
-    let randomNumber = parseInt(Math.random()*100);
-    
+let randomNumber;
+let attemptCount;
 
-   if(number > randomNumber){
-       alert("Too Big");
-   }
-   else if(number < randomNumber){
-       alert("Too Small");
-   }
-   else{
-       alert("You Win")
-   }
-
-
-
-
-
-   alert(randomNumber);
+function generateNewNumber() {
+    randomNumber = parseInt(Math.random() * 100);
+    attemptCount = 0;
 }
+generateNewNumber();
+
+function check() {
+    let number = parseInt(document.querySelector("input").value);
+
+    if (number > randomNumber) {
+        alert("Too Big");
+        attemptCount++;
+    }
+    else if (number < randomNumber) {
+        alert("Too Small");
+        attemptCount++;
+    }
+    else {
+        alert("Congrates You Win And No. Attempt: " + attemptCount);
+        generateNewNumber();
+
+    }
+
+}
+
+
+
+
+
+
